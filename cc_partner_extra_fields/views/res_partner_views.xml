@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Partner Form View Extension -->
+    <record id="view_partner_form_inherit_commercial_fields" model="ir.ui.view">
+        <field name="name">res.partner.form.commercial.fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority">25</field>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Commercial &amp; Compliance" name="page_commercial_compliance">
+                    <group>
+                        <group string="Commercial Identification">
+                            <field name="partner_code"/>
+                            <field name="cr_number"/>
+                            <field name="partner_category_type"/>
+                            <field name="business_classification"/>
+                            <field name="nature_of_business"/>
+                        </group>
+                        <group string="Compliance &amp; Tax Status">
+                            <field name="partner_status" widget="radio"/>
+                            <field name="vat_applicable"/>
+                        </group>
+                    </group>
+                    <group string="Logistics &amp; Payment Preferences">
+                        <group>
+                            <field name="preferred_shipping_method"/>
+                            <field name="shipping_agent_code"/>
+                        </group>
+                        <group>
+                            <field name="payment_method_preference"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Partner Tree View Extension -->
+    <record id="view_partner_tree_inherit_commercial_fields" model="ir.ui.view">
+        <field name="name">res.partner.tree.commercial.fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="before">
+                <field name="partner_code" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="partner_status"
+                       widget="badge"
+                       decoration-success="partner_status == 'active'"
+                       decoration-danger="partner_status == 'blocked'"
+                       decoration-warning="partner_status in ('under_review', 'suspended')"
+                       optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Partner Search View Extension -->
+    <record id="view_res_partner_filter_inherit_commercial_fields" model="ir.ui.view">
+        <field name="name">res.partner.select.commercial.fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="partner_code"/>
+                <field name="cr_number"/>
+            </xpath>
+            <xpath expr="//group[@expand='0']" position="inside">
+                <filter name="group_partner_status" string="Compliance Status" context="{'group_by': 'partner_status'}"/>
+                <filter name="group_partner_category" string="Organization Type" context="{'group_by': 'partner_category_type'}"/>
+                <filter name="group_business_class" string="Business Classification" context="{'group_by': 'business_classification'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

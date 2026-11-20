@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Commercial Extra Fields & Master Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+        .badge-odoo {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            height: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .feature-card h5 {
+            color: #0f172a;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .highlight-bar {
+            width: 40px;
+            height: 4px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+            margin-bottom: 16px;
+        }
+        .spec-table th {
+            width: 30%;
+            background-color: #f1f5f9;
+        }
+        .footer-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="container py-4">
+
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <span class="badge-odoo">Odoo 17 Community & Enterprise</span>
+        <h1 class="display-5 fw-bold mb-3">Partner Commercial Extra Fields & Master Data</h1>
+        <p class="lead text-slate-300 max-w-2xl mx-auto mb-4" style="color: #cbd5e1;">
+            Enrich customer and supplier records with Commercial Registration (CR) numbers, internal partner codes, legal entity classification, onboarding status, and logistics preferences.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <span class="badge bg-secondary px-3 py-2">Module: cc_partner_extra_fields</span>
+            <span class="badge bg-primary px-3 py-2">License: OPL-1</span>
+        </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm p-4">
+                <h3 class="fw-bold text-dark mb-3">Standardize Enterprise B2B Contact Profiles</h3>
+                <p>
+                    Out of the box, Odoo provides standard contact details such as address, phone, and tax ID. However, enterprise operations, GCC businesses, and B2B traders require critical statutory and operational identifiers: Commercial Registration (CR) numbers, organization classifications, verification status, and default freight methods.
+                </p>
+                <p class="mb-0">
+                    This module introduces structured fields directly onto <code>res.partner</code>, neatly organized under a dedicated <strong>Commercial & Compliance</strong> tab. All new fields integrate with Odoo list views, search filters, and group-by aggregations.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Features Grid -->
+    <h3 class="fw-bold text-dark mb-4">Module Capabilities</h3>
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="feature-card">
+                <div class="highlight-bar"></div>
+                <h5>Commercial Registration (CR) & Codes</h5>
+                <p class="text-muted">
+                    Maintain official trade license numbers, CR identifiers, and custom partner account codes. Fully searchable via the standard contacts search bar.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="feature-card">
+                <div class="highlight-bar"></div>
+                <h5>Organization & Entity Classification</h5>
+                <p class="text-muted">
+                    Categorize entities into Corporate / Private Enterprise, Government, Semi-Government, NGO, Individual, or Foreign Company, alongside classification as Customer, Vendor, Contractor, or Partner.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="feature-card">
+                <div class="highlight-bar"></div>
+                <h5>Compliance & Onboarding Status</h5>
+                <p class="text-muted">
+                    Monitor contact vetting state with visual badges on tree and form views: Active & Approved, Under Review, Suspended, or Blocked.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="feature-card">
+                <div class="highlight-bar"></div>
+                <h5>Logistics & Payment Preferences</h5>
+                <p class="text-muted">
+                    Define default logistics arrangements (Air, Sea, Road, Express Courier, Pickup) and preferred payment channels (Bank Wire, Corporate Check, Card, Cash).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Specifications -->
+    <h3 class="fw-bold text-dark mb-4">Technical Specifications</h3>
+    <div class="card border-0 shadow-sm p-4 mb-5">
+        <table class="table table-bordered spec-table mb-0">
+            <tbody>
+                <tr>
+                    <th>Target Version</th>
+                    <td>Odoo 17.0 (Community & Enterprise)</td>
+                </tr>
+                <tr>
+                    <th>Base Dependencies</th>
+                    <td><code>base</code> (Zero external third-party dependencies)</td>
+                </tr>
+                <tr>
+                    <th>Technical Namespace</th>
+                    <td><code>cc_partner_extra_fields</code></td>
+                </tr>
+                <tr>
+                    <th>Models Extended</th>
+                    <td><code>res.partner</code></td>
+                </tr>
+                <tr>
+                    <th>License</th>
+                    <td>Odoo Proprietary License v1.0 (OPL-1)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Support and Inquiries -->
+    <div class="footer-card">
+        <h4 class="fw-bold mb-2">Need Customization or Support?</h4>
+        <p class="text-muted mb-3">
+            Our engineering team provides direct support, migration assistance, and custom ERP integration.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="https://usmanghias.co.uk" target="_blank" class="btn btn-primary px-4 py-2">Developer Portfolio</a>
+            <a href="mailto:support@codcrafters.org" class="btn btn-outline-secondary px-4 py-2">Contact Support</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

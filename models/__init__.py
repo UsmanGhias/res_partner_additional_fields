@@ -1,1 +1,0 @@
-from . import tele_res_partner
