@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Partner Commercial Extra Fields & Master Data',
-    'version': '17.0.1.0.0',
+    'version': '18.0.1.0.0',
     'category': 'Sales',
     'summary': 'Enrich partner master data with Commercial Registration (CR), organization type, compliance status, and logistics preferences.',
     'description': """
